@@ -1,6 +1,7 @@
 import { FaShield } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import userAxios from "./apis/userApi";
+import { FaAddressCard, FaCalendarPlus, FaCalendarDays, FaCalendarCheck, FaArrowRightFromBracket } from "react-icons/fa6";
 
 const UserHeader = ({ logUser, navigate, noDataFound, users, setUsers }) => {
     const handleLogOut = () => {
@@ -28,12 +29,25 @@ const UserHeader = ({ logUser, navigate, noDataFound, users, setUsers }) => {
         <header>
             {logUser.length ? logUser[0].isLoggedin ? (
                 <nav>
-                    <ul>
-                        <li><Link to={`/user/${logUser[0].id}/`}>Profile</Link></li>
-                        <li><Link to={`/user/${logUser[0].id}/create`}>Create Event</Link></li>
-                        <li><Link to={`/user/${logUser[0].id}/events`}>Your Events</Link></li>
-                        <li><Link to={`/user/${logUser[0].id}/booked`}>Booked Events</Link></li>
-                        <li>
+                    <ul className="nav-list">
+                        <li className="nav-links elink-1">
+                            <FaAddressCard />
+                            <Link to={`/user/${logUser[0].id}/`}>Profile</Link>
+                        </li>
+                        <li className="nav-links elink-2">
+                            <FaCalendarPlus />
+                            <Link to={`/user/${logUser[0].id}/create`}>Create Event</Link>
+                        </li>
+                        <li className="nav-links elink-3">
+                            <FaCalendarDays />
+                            <Link to={`/user/${logUser[0].id}/events`}>Your Events</Link>
+                        </li>
+                        <li className="nav-links elink-4">
+                            <FaCalendarCheck />
+                            <Link to={`/user/${logUser[0].id}/booked`}>Booked</Link>
+                        </li>
+                        <li className="nav-links elink-5">
+                            <FaArrowRightFromBracket />
                             <button
                                 type="button"
                                 onClick={handleLogOut}
@@ -44,13 +58,27 @@ const UserHeader = ({ logUser, navigate, noDataFound, users, setUsers }) => {
                     </ul>
                 </nav>
             ) : (
-                <>
-                    <p>Click on the Login button to return to the login page, user not currently looged in :(</p>
-                    <FaShield />
-                    <button onClick={() => navigate("/login")}>Login</button>
-                </>
-            ) : noDataFound ? <p>{noDataFound}</p>
-                : <p>User profile menu is Loading...</p>
+                <nav>
+                    <ul className="nav-list try-login-nav">
+                        <li className="nav-links text"><p>Click on the Login button to return to the login page, user not currently logged in</p></li>
+                        <li className="nav-links icon"> <FaShield /></li>
+                        <li className="nav-links button"><button onClick={() => navigate("/login")}>Login</button></li>
+                    </ul>
+                </nav>
+            ) : noDataFound ?
+                <nav>
+                    <ul className="nav-list try-login-nav">
+                        <li className="nav-links text">{noDataFound}</li>
+                        <li className="nav-links button"><button onClick={() => navigate("/login")}>Login</button></li>
+                    </ul>
+                </nav>
+                :
+                <nav>
+                    <ul className="nav-list try-login-nav">
+                        <li className="nav-links text">User profile menu is Loading...</li>
+                        <li className="nav-links button"><button onClick={() => navigate("/login")}>Login</button></li>
+                    </ul>
+                </nav>
             }
         </header>
     );

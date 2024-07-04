@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import userAxios from "./apis/userApi";
+import eventImage from "./assets/images/all_event_pic.jpg"
 
 const Event = ({ events, users, setEvents }) => {
     const [theEvent, setTheEvent] = useState([]);
@@ -18,7 +19,7 @@ const Event = ({ events, users, setEvents }) => {
         display: "none",
     });
     const [bookButtonStyle, setBookButtonStyle] = useState({
-        display: "block",
+        display: "flex",
     });
     const { id } = useParams();
 
@@ -44,7 +45,16 @@ const Event = ({ events, users, setEvents }) => {
             display: "none",
         });
         setFormStyle({
-            display: "block",
+            display: "flex",
+        });
+        setSubmitMessage('');
+    }
+    const handleBackToEvent = () => {
+        setBookButtonStyle({
+            display: "flex",
+        });
+        setFormStyle({
+            display: "none",
         });
         setSubmitMessage('');
     }
@@ -81,7 +91,7 @@ const Event = ({ events, users, setEvents }) => {
         if (checkIdExists.length > 0) {
             setSubmitMessage("User already booked for this event...");
             setBookButtonStyle({
-                display: "block",
+                display: "flex",
             });
             setFormStyle({
                 display: "none",
@@ -108,7 +118,7 @@ const Event = ({ events, users, setEvents }) => {
         setEvents(allEvents);
         setSubmitMessage("Event was successfully booked!!!");
         setBookButtonStyle({
-            display: "block",
+            display: "flex",
         });
         setFormStyle({
             display: "none",
@@ -117,18 +127,32 @@ const Event = ({ events, users, setEvents }) => {
         setPassword('');
     };
     return (
-        <div>
+        <div className="each-event-section">
+            {submitMessage ? <p aria-live="assertive">{submitMessage}</p> : null}
             {isEventGotten ? theEvent.length > 0 ? (
-                <section style={bookButtonStyle}>
-                    <div>
-                        <h3>{title}</h3>
-                        <p>{date}</p>
-                        <p>{time}</p>
-                        <p>{location}</p>
-                        <p>{venue}</p>
-                        <div>{description}</div>
+                <section style={bookButtonStyle} className="event-list-item">
+                    <div className="all_event_image">
+                        <img src={eventImage} alt="event_image" />
                     </div>
-                    <div>
+                    <div className="event-title">
+                        <strong>Title:</strong>{title}
+                    </div>
+                    <div className="event-date">
+                        <strong>Date:</strong>{date}
+                    </div>
+                    <div className="event-time">
+                        <strong>Time:</strong>{time}
+                    </div>
+                    <div className="event-location">
+                        <strong>Location:</strong>{location}
+                    </div>
+                    <div className="event-venue">
+                        <strong>Venue:</strong>{venue}
+                    </div>
+                    <div className="event-description">
+                        <strong>Description:</strong>{description}
+                    </div>
+                    <div className="book-event">
                         <button
                             type="button"
                             onClick={handleBookEvent}
@@ -139,11 +163,13 @@ const Event = ({ events, users, setEvents }) => {
                     </div>
                 </section>
             ) : <p>No event Found!!!</p> : <p>Loading the events before event can be booked...</p>}
-            {submitMessage ? <p>{submitMessage}</p> : null}
-            <section style={formStyle}>
+            <section style={formStyle} className="login-section booking-form">
+                <div>
+                    <h1>Book Now</h1>
+                </div>
                 <form onSubmit={handleBookSubmit}>
                     <p>
-                        <label htmlFor="username">Username</label>
+                        <label htmlFor="username">Username: </label>
                         <input
                             type="text"
                             id="username"
@@ -152,7 +178,7 @@ const Event = ({ events, users, setEvents }) => {
                         />
                     </p>
                     <p>
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="password">Password: </label>
                         <input
                             type="password"
                             id="password"
@@ -160,9 +186,15 @@ const Event = ({ events, users, setEvents }) => {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </p>
-                    <p>
-                        <button type="submit">
+                    <p className="back_and_book">
+                        <button type="submit" className="book-button">
                             Submit Booking
+                        </button>
+                        <button
+                            type="button"
+                            onClick={handleBackToEvent}
+                        >
+                            Back
                         </button>
                     </p>
                 </form>

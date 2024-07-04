@@ -292,7 +292,7 @@ function App2() {
 
 
     return (
-        <div>
+        <div className='App'>
             <UserHeader logUser={logUser} navigate={navigate} noDataFound={noDataFound} users={users} setUsers={setUsers}/>
             <Routes>
                 <Route path='/' element={<UserProfile logUser={logUser} noDataFound={noDataFound} new_first_name={new_first_name} new_last_name={new_last_name} new_email={new_email} new_username={new_username} new_password={new_password} imageUrl={imageUrl} setNewFirstName={setNewFirstName} setNewLastName={setNewLastName} setNewEmail={setNewEmail} setNewUserName={setNewUserName} setNewPassword={setNewPassword} handleImageUpload={handleImageUpload} imageName={imageName} handleUpdate={handleUpdate} updateMessage={updateMessage} />} />

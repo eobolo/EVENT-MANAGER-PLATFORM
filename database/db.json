@@ -24,10 +24,10 @@
       "id": "3",
       "first_name": "ABIODUN",
       "last_name": "KUMUYI",
-      "username": "abiodan",
+      "username": "abiodun",
       "email": "akumuyi@yahoo.com",
       "password": "abiodun",
-      "isLoggedin": true,
+      "isLoggedin": false,
       "gravatarUrl": "https://www.gravatar.com/avatar/58146d5e993d82be2007dc0bd2ecd306?s=200"
     },
     {
@@ -39,47 +39,38 @@
       "password": "Kyla24",
       "isLoggedin": false,
       "gravatarUrl": "https://www.gravatar.com/avatar/c792aca94eb6f16d3381f49a14139d7a?s=200"
+    },
+    {
+      "id": "5",
+      "first_name": "HUSNA",
+      "last_name": "ABDALLAH",
+      "username": "husnamoh",
+      "email": "husnamoh2001@gmail.com",
+      "password": "husnamohammhed",
+      "isLoggedin": false,
+      "gravatarUrl": "https://www.gravatar.com/avatar/a6c63c9e0a2e2e2605a02bbc2e7b814f?s=200"
+    },
+    {
+      "id": "6",
+      "first_name": "EMMMANUEL",
+      "last_name": "ODEN",
+      "username": "oseer",
+      "email": "e.oden@alustudent.com",
+      "password": "sitdownhere",
+      "isLoggedin": false,
+      "gravatarUrl": "https://www.gravatar.com/avatar/203ae5e80585b4a6be8a39a28ab7422b?s=200"
     }
   ],
   "events": [
     {
-      "id": "2",
+      "id": "1",
       "userId": "3",
-      "title": "Tradathon Info Session 1",
-      "date": "2024-05-24",
-      "time": "23:10",
+      "title": "medhack conference5",
+      "date": "2024-07-11",
+      "time": "18:00",
       "location": "Kigali, Gasabo, Umujyi Wa Kigali, RWA",
-      "venue": "Kigali Convention centre",
-      "description": "excel's events updated!!! now again, and again",
-      "booking": [
-        {
-          "userId": 3
-        },
-        {
-          "userId": 2
-        }
-      ]
-    },
-    {
-      "id": "3",
-      "userId": "3",
-      "title": "Google developer's day",
-      "date": "2024-05-25",
-      "time": "18:13",
-      "location": "Kigali, Gasabo, Umujyi Wa Kigali, RWA",
-      "venue": "Kigali Convention centre",
-      "description": "trying the react app",
-      "booking": []
-    },
-    {
-      "id": "4",
-      "userId": "4",
-      "title": "",
-      "date": "",
-      "time": "",
-      "location": "",
-      "venue": "",
-      "description": "",
+      "venue": "nNambosi Convention centre",
+      "description": "first event created today to construct create event and edit event, this test would seem very good for this app. Helping purity with the CSS styling, progress has been made so far.",
       "booking": []
     }
   ]

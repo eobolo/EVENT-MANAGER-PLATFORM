@@ -1,6 +1,8 @@
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import userAxios from "./apis/userApi";
+import eventImage from "./assets/images/all_event_pic.jpg"
+import { FaDatabase } from "react-icons/fa6";
 
 const UserEventList = ({ events, logUser, navigate, setEvents, userId }) => {
     const [theEvent, setTheEvent] = useState([]);
@@ -52,34 +54,51 @@ const UserEventList = ({ events, logUser, navigate, setEvents, userId }) => {
 
 
     return (
-        <div>
+        <div className="each-event-section">
             {logUser.length !== 0 ? logUser[0].isLoggedin ? isEventGotten ? theEvent.length > 0 ? (
-                <section>
-                    <div>
-                        <h3>{title}</h3>
-                        <p>{date}</p>
-                        <p>{time}</p>
-                        <p>{location}</p>
-                        <p>{venue}</p>
-                        <div>{description}</div>
+                <section className="event-list-item">
+                    <div className="all_event_image">
+                        <img src={eventImage} alt="event_image" />
                     </div>
-                    <div>
-                        <button
-                            type="button"
-                        >
-                            <Link to={`/user/${userId}/edit/${id}`}>
+                    <div className="event-title">
+                        <strong>Title:</strong>{title}
+                    </div>
+                    <div className="event-date">
+                        <strong>Date:</strong>{date}
+                    </div>
+                    <div className="event-time">
+                        <strong>Time:</strong>{time}
+                    </div>
+                    <div className="event-location">
+                        <strong>Location:</strong>{location}
+                    </div>
+                    <div className="event-venue">
+                        <strong>Venue:</strong>{venue}
+                    </div>
+                    <div className="event-description">
+                        <strong>Description:</strong>{description}
+                    </div>
+                    <div className="action-buttons">
+                        <Link to={`/user/${userId}/edit/${id}`}>
+                            <button
+                                type="button"
+                                className="book-button edit-button"
+                            >
                                 Edit Event
-                            </Link>
-                        </button>
+                            </button>
+                        </Link>
                         <button
                             type="button"
                             onClick={handleDelete}
+                            className="del-button"
                         >
                             Delete Event
                         </button>
                     </div>
                 </section>
-            ) : <p>No event Found!!!</p> : <p>Loading the events before crud can be done...</p> : null : null}
+            ) : <div className="not-available"><p>No event Found!!!</p></div> : <div div className="loading-events"><p>Loading the events before crud can be done...</p></div> : <div className="not-available try-login">Read Instructions at the side</div> : <div className="not-available try-login database">
+                <FaDatabase />
+            </div>}
         </div>
     );
 }

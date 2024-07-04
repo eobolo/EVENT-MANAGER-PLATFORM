@@ -1,5 +1,6 @@
 import { useState } from "react";
 import userAxios from "./apis/userApi";
+import { FaDatabase } from "react-icons/fa6";
 
 const UserCreate = ({ isEventDataGotten, userId, events, setEvents, logUser }) => {
     const [title, setTitle] = useState('');
@@ -54,14 +55,15 @@ const UserCreate = ({ isEventDataGotten, userId, events, setEvents, logUser }) =
     }
 
     return (
-        <div>
+        <section className="create-event-section">
             {logUser.length !== 0 ? logUser[0].isLoggedin ? isEventDataGotten ?
-                (<section>
+                (<div>
                     {isCreated ? <p>{isCreated}</p> : null}
                     <form onSubmit={(e) => handleCreateEvent(e)}>
                         <p>
                             <label htmlFor="title">Event Title</label>
                             <input
+                                required
                                 type="text"
                                 id="title"
                                 value={title}
@@ -71,6 +73,7 @@ const UserCreate = ({ isEventDataGotten, userId, events, setEvents, logUser }) =
                         <p>
                             <label htmlFor="date">Event Date</label>
                             <input
+                                required
                                 type="date"
                                 id="date"
                                 value={date}
@@ -80,6 +83,7 @@ const UserCreate = ({ isEventDataGotten, userId, events, setEvents, logUser }) =
                         <p>
                             <label htmlFor="time">Event Time</label>
                             <input
+                                required
                                 type="time"
                                 id="time"
                                 value={time}
@@ -89,6 +93,7 @@ const UserCreate = ({ isEventDataGotten, userId, events, setEvents, logUser }) =
                         <p>
                             <label htmlFor="location">Event Location</label>
                             <input
+                                required
                                 type="text"
                                 id="location"
                                 value={location}
@@ -98,6 +103,7 @@ const UserCreate = ({ isEventDataGotten, userId, events, setEvents, logUser }) =
                         <p>
                             <label htmlFor="venue">Event Venue</label>
                             <input
+                                required
                                 type="text"
                                 id="venue"
                                 value={venue}
@@ -107,6 +113,7 @@ const UserCreate = ({ isEventDataGotten, userId, events, setEvents, logUser }) =
                         <p>
                             <label htmlFor="description">Event Description</label>
                             <textarea
+                                required
                                 id="description"
                                 rows="30"
                                 cols="30"
@@ -120,8 +127,10 @@ const UserCreate = ({ isEventDataGotten, userId, events, setEvents, logUser }) =
                             </button>
                         </p>
                     </form>
-                </section>) : <p>Loading the Events before Events can be created...</p> : null : null}
-        </div>
+                </div>) : <div className="loading-events">Loading the Events before Events can be created...</div> : <div className="not-available try-login">Read Instructions at the side</div> : <div className="not-available try-login database">
+        <FaDatabase />
+      </div>}
+        </section>
     );
 }
 export default UserCreate;

@@ -152,7 +152,7 @@ function App() {
     setPassword('');
     setVerifyPassword('');
     setSigninError(null);
-    setSignupSuccess('User successfully Created :)');
+    setSignupSuccess('User successfully Created');
     navigate("/login");
   }
 
@@ -204,6 +204,7 @@ function App() {
   return (
     <div className='App'>
       <HomeHeader />
+      {}
       <Routes>
         <Route path="/" element={<EventList events={events} isEventDataGotten={isEventDataGotten} users={users}/>} />
         <Route path="/event/:id" element={<Event events={events} users={users} setEvents={setEvents} />} />

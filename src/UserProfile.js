@@ -9,28 +9,28 @@ const UserProfile = ({ logUser, noDataFound, new_first_name, new_last_name, new_
         cursor: "pointer",
     }
     return (
-        <section>
+        <section className="profile-section">
             {logUser.length ? logUser[0].isLoggedin ? (
-                <div>
-                    <div>
-                        <div>
-                            <div><img src={imageUrl} alt="User's profile pic" /></div>
-                            <div>
+                <div className="profile-section-div">
+                    <div className="upload-div">
+                        <div className="upload-div-1">
+                            <div className="upload-div-1-1"><img src={imageUrl} alt="User's profile pic" /></div>
+                            <div className="upload-div-1-2">
                                 <p>Upload a Newphoto</p>
                                 <p>{imageName}</p>
                             </div>
                         </div>
-                        <div>
-                            <label htmlFor="imageUpload" style={LabelFileStyle}>Upload</label>
+                        <div className="upload-div-2">
+                            <label htmlFor="imageUpload" style={LabelFileStyle}><span>Upload</span></label>
                             <input style={inputFileStyle} type="file" id="imageUpload" accept="image/*" onChange={(e) => handleImageUpload(e, logUser[0].id)} />
                         </div>
                     </div>
-                    <div>
+                    <div className="personal-info-div">
                         <form method="post" onSubmit={(e) => handleUpdate(e, logUser[0].id)}>
                             {updateMessage ? (<div className="updateMessage">{updateMessage}</div>) : null}
-                            <div>
+                            <div className="personal-info-div-1">
                                 <p>
-                                    <label htmlFor="first_name">firstname</label>
+                                    <label htmlFor="first_name">firstname: </label>
                                     <input
                                         id="first_name"
                                         type="text"
@@ -39,7 +39,7 @@ const UserProfile = ({ logUser, noDataFound, new_first_name, new_last_name, new_
                                     />
                                 </p>
                                 <p>
-                                    <label htmlFor="last_name">lastname</label>
+                                    <label htmlFor="last_name">lastname: </label>
                                     <input
                                         id="last_name"
                                         type="text"
@@ -48,9 +48,9 @@ const UserProfile = ({ logUser, noDataFound, new_first_name, new_last_name, new_
                                     />
                                 </p>
                             </div>
-                            <div>
+                            <div className="personal-info-div-2">
                                 <p>
-                                    <label htmlFor="email">email</label>
+                                    <label htmlFor="email">email: </label>
                                     <input
                                         id="email"
                                         type="email"
@@ -59,7 +59,7 @@ const UserProfile = ({ logUser, noDataFound, new_first_name, new_last_name, new_
                                     />
                                 </p>
                                 <p>
-                                    <label htmlFor="username">username</label>
+                                    <label htmlFor="username">username: </label>
                                     <input
                                         id="username"
                                         type="text"
@@ -68,9 +68,9 @@ const UserProfile = ({ logUser, noDataFound, new_first_name, new_last_name, new_
                                     />
                                 </p>
                             </div>
-                            <div>
+                            <div className="personal-info-div-3">
                                 <p>
-                                    <label htmlFor="password">password</label>
+                                    <label htmlFor="password">password: </label>
                                     <input
                                         id="password"
                                         type="password"
@@ -79,7 +79,7 @@ const UserProfile = ({ logUser, noDataFound, new_first_name, new_last_name, new_
                                     />
                                 </p>
                             </div>
-                            <div>
+                            <div className="personal-info-div-4">
                                 <button
                                     type="submit"
                                 >
@@ -90,14 +90,14 @@ const UserProfile = ({ logUser, noDataFound, new_first_name, new_last_name, new_
                     </div>
                 </div>
             ) : (
-                <p>Do the suggestion above</p>
+                <div className="not-available try-login">Read Instructions at the side</div>
             ) : noDataFound ?
-                <>
+                <div className="not-available try-login database">
                     <FaDatabase />
-                </>
-                : <>
+                </div>
+                : <div className="not-available try-login fetching">
                     <FaSpinner />
-                </>
+                </div>
             }
         </section>
     );

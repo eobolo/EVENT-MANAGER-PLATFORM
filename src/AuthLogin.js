@@ -1,38 +1,48 @@
 const AuthLogin = ({ signupSuccess, username, password, setUserName, setPassword, signinError, handleLogin }) => {
     return (
-        <section>
-            {signupSuccess ? (<p>
+        <section className="login-section">
+            {signupSuccess ? (<div className="signupSuccess">
                 {signupSuccess}
-            </p>) : null}
+            </div>) : null}
             {signinError ? (
-                <p>{signinError}</p>
+                <div>{signinError}</div>
             ) : null}
-            <h1>Login Here :)</h1>
-            <form onSubmit={handleLogin}>
-                <p>
-                    <label htmlFor="username">username</label>
-                    <input
-                        id="username"
-                        type="text"
-                        value={username}
-                        onChange={(e) => setUserName(e.target.value)}
-                    />
-                </p>
-                <p>
-                    <label htmlFor="password">password</label>
-                    <input
-                        id="password"
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                </p>
-                <button
-                    type="submit"
-                >
-                    Login
-                </button>
-            </form>
+            <div>
+                <h1>Login Here</h1>
+            </div>
+            <div>
+                <form onSubmit={handleLogin}>
+                    <p>
+                        <span>
+                            <label htmlFor="username">username: </label>
+                        </span>
+                        <span>
+                            <input
+                                id="username"
+                                type="text"
+                                value={username}
+                                onChange={(e) => setUserName(e.target.value)}
+                            />
+                        </span>
+                    </p>
+                    <p>
+                        <label htmlFor="password">password: </label>
+                        <input
+                            id="password"
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </p>
+                    <p>
+                        <button
+                            type="submit"
+                        >
+                            Login
+                        </button>
+                    </p>
+                </form>
+            </div>
         </section>
     );
 }
