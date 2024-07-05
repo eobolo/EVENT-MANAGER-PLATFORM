@@ -25,9 +25,9 @@
       "first_name": "ABIODUN",
       "last_name": "KUMUYI",
       "username": "abiodun",
-      "email": "akumuyi@yahoo.com",
+      "email": "a.kumuyi@alustudent.com",
       "password": "abiodun",
-      "isLoggedin": false,
+      "isLoggedin": true,
       "gravatarUrl": "https://www.gravatar.com/avatar/58146d5e993d82be2007dc0bd2ecd306?s=200"
     },
     {
@@ -71,6 +71,17 @@
       "location": "Kigali, Gasabo, Umujyi Wa Kigali, RWA",
       "venue": "nNambosi Convention centre",
       "description": "first event created today to construct create event and edit event, this test would seem very good for this app. Helping purity with the CSS styling, progress has been made so far.",
+      "booking": []
+    },
+    {
+      "id": "2",
+      "userId": "3",
+      "title": "Google developer's day",
+      "date": "2024-07-18",
+      "time": "10:00",
+      "location": "Kigali City, RWA",
+      "venue": "ALU Conference Centre",
+      "description": "testing event 2",
       "booking": []
     }
   ]

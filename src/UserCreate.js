@@ -29,7 +29,7 @@ const UserCreate = ({ isEventDataGotten, userId, events, setEvents, logUser }) =
         id = parseInt(id) + 1;
 
         // create new event object
-        const newEvent = { id: `${id}`, userId, title, date, time, location, venue, description, booking};
+        const newEvent = { id: `${id}`, userId, title, date, time, location, venue, description, booking };
         // now add the new event to previous events created
         const allEvents = [...events, newEvent];
         // create a function to post the new event to the events endpoint
@@ -39,7 +39,7 @@ const UserCreate = ({ isEventDataGotten, userId, events, setEvents, logUser }) =
                 const eventData = await userAxios.post('/events/', newEvent);
                 console.log(eventData.data);
             } catch (error) {
-                console.error(`An Error with status ${error.response.status} and headers of ${error.response.headers} with data ${error.response.data} occured :(`);     
+                console.error(`An Error with status ${error.response.status} and headers of ${error.response.headers} with data ${error.response.data} occured :(`);
             }
         }
         addEvent(newEvent);
@@ -57,11 +57,11 @@ const UserCreate = ({ isEventDataGotten, userId, events, setEvents, logUser }) =
     return (
         <section className="create-event-section">
             {logUser.length !== 0 ? logUser[0].isLoggedin ? isEventDataGotten ?
-                (<div>
-                    {isCreated ? <p>{isCreated}</p> : null}
-                    <form onSubmit={(e) => handleCreateEvent(e)}>
-                        <p>
-                            <label htmlFor="title">Event Title</label>
+                (<div className="event-form-div">
+                    <form onSubmit={(e) => handleCreateEvent(e)} className="event-form">
+                        {isCreated ? <p>{isCreated}</p> : null}
+                        <p className="event-form-p1 glow">
+                            <label htmlFor="title">Event Title: </label>
                             <input
                                 required
                                 type="text"
@@ -70,8 +70,8 @@ const UserCreate = ({ isEventDataGotten, userId, events, setEvents, logUser }) =
                                 onChange={(e) => setTitle(e.target.value)}
                             />
                         </p>
-                        <p>
-                            <label htmlFor="date">Event Date</label>
+                        <p className="event-form-p2 glow">
+                            <label htmlFor="date">Event Date: </label>
                             <input
                                 required
                                 type="date"
@@ -80,8 +80,8 @@ const UserCreate = ({ isEventDataGotten, userId, events, setEvents, logUser }) =
                                 onChange={(e) => setDate(e.target.value)}
                             />
                         </p>
-                        <p>
-                            <label htmlFor="time">Event Time</label>
+                        <p className="event-form-p3 glow">
+                            <label htmlFor="time">Event Time: </label>
                             <input
                                 required
                                 type="time"
@@ -90,8 +90,8 @@ const UserCreate = ({ isEventDataGotten, userId, events, setEvents, logUser }) =
                                 onChange={(e) => setTime(e.target.value)}
                             />
                         </p>
-                        <p>
-                            <label htmlFor="location">Event Location</label>
+                        <p className="event-form-p4 glow">
+                            <label htmlFor="location">Event Location: </label>
                             <input
                                 required
                                 type="text"
@@ -100,8 +100,8 @@ const UserCreate = ({ isEventDataGotten, userId, events, setEvents, logUser }) =
                                 onChange={(e) => setLocation(e.target.value)}
                             />
                         </p>
-                        <p>
-                            <label htmlFor="venue">Event Venue</label>
+                        <p className="event-form-p5 glow">
+                            <label htmlFor="venue">Event Venue: </label>
                             <input
                                 required
                                 type="text"
@@ -110,7 +110,7 @@ const UserCreate = ({ isEventDataGotten, userId, events, setEvents, logUser }) =
                                 onChange={(e) => setVenue(e.target.value)}
                             />
                         </p>
-                        <p>
+                        <p className="event-form-p6 glow">
                             <label htmlFor="description">Event Description</label>
                             <textarea
                                 required
@@ -121,15 +121,15 @@ const UserCreate = ({ isEventDataGotten, userId, events, setEvents, logUser }) =
                                 onChange={(e) => setDescription(e.target.value)}
                             />
                         </p>
-                        <p>
+                        <p className="event-form-p7">
                             <button type="submit">
                                 Create Event
                             </button>
                         </p>
                     </form>
                 </div>) : <div className="loading-events">Loading the Events before Events can be created...</div> : <div className="not-available try-login">Read Instructions at the side</div> : <div className="not-available try-login database">
-        <FaDatabase />
-      </div>}
+                <FaDatabase />
+            </div>}
         </section>
     );
 }

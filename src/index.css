@@ -697,3 +697,89 @@ svg {
   border-radius: 3px;
   border: 1px solid white;
 }
+
+/* styling the create and edit event form */
+.event-form-div {
+  flex: 1;
+  display: flex;
+}
+.event-form {
+  flex: 1 1;
+  display: flex;
+  flex-direction: column;
+  margin: 5px 10px;
+  border: 3px solid green;
+  border-radius: 20px;
+  background: rgb(187, 187, 187);
+}
+.event-form input {
+  height: 30px;
+  outline: none;
+  border: 3px solid #00ad00;
+  border-radius: 10px;
+  background: #393939;
+  color: white;
+  padding-left: 15px;
+  margin-left: 10px;
+}
+.glow {
+  color: #fff;
+  text-shadow: 0 0 3px #fff, 0 0 6px #00f, 0 0 9px #00f, 0 0 12px #00f;
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+      text-shadow: 0 0 3px #fff, 0 0 6px #00f, 0 0 9px #00f, 0 0 12px #00f;
+  }
+  to {
+      text-shadow: 0 0 6px #fff, 0 0 9px #00f, 0 0 12px #00f, 0 0 15px #00f;
+  }
+}
+.event-form textarea {
+  outline: none;
+  border: 3px solid #00ad00;
+  border-radius: 10px;
+  background: #393939;
+  color: white;
+  padding: 10px 15px;
+}
+.event-form-p1 input {
+  width: 25%;
+}
+.event-form-p2 input {
+  width: 25%;
+}
+.event-form-p3 input {
+  width: 25%;
+}
+.event-form-p4 input {
+  width: 21%;
+}
+.event-form-p5 input {
+  width: 24%;
+}
+.event-form-p6 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.event-form-p6 textarea {
+  height: 170px;
+  margin: auto 40px;
+  width: 600px;
+}
+.event-form-p7 {
+  display: flex;
+  justify-content: center;
+  margin: 2px;
+}
+.event-form-p7 button{
+  width: 120px;
+  height: 40px;
+  border: 1px solid white;
+  border-radius: 5px;
+  background: #0c6dfe;
+  color: white;
+  cursor: pointer;
+}

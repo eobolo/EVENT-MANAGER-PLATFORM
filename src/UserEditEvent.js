@@ -57,70 +57,72 @@ const UserEditEvent = ({ events, logUser, navigate, setEvents, userId }) => {
 
   return (
     <section className="edit-event-section">
-      {editSuccess ? <p>{editSuccess}</p> : null}
       {logUser.length !== 0 ? logUser[0].isLoggedin ? isEventGotten ? theEvent.length > 0 ? (
-        <form onSubmit={handleSubmitEdit}>
-          <p>
-            <label htmlFor="title">Event Title</label>
-            <input
-              type="text"
-              id="title"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-          </p>
-          <p>
-            <label htmlFor="date">Event Date</label>
-            <input
-              type="date"
-              id="date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-            />
-          </p>
-          <p>
-            <label htmlFor="time">Event Time</label>
-            <input
-              type="time"
-              id="time"
-              value={time}
-              onChange={(e) => setTime(e.target.value)}
-            />
-          </p>
-          <p>
-            <label htmlFor="location">Event Location</label>
-            <input
-              type="text"
-              id="location"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-            />
-          </p>
-          <p>
-            <label htmlFor="venue">Event Venue</label>
-            <input
-              type="text"
-              id="venue"
-              value={venue}
-              onChange={(e) => setVenue(e.target.value)}
-            />
-          </p>
-          <p>
-            <label htmlFor="description">Event Description</label>
-            <textarea
-              id="description"
-              rows="30"
-              cols="30"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-          </p>
-          <p>
-            <button type="submit" onMouseOver={() => setEditSuccess('')}>
-              Submit Edit
-            </button>
-          </p>
-        </form>
+        <div className="event-form-div">
+          <form onSubmit={handleSubmitEdit} className="event-form">
+            {editSuccess ? <p>{editSuccess}</p> : null}
+            <p className="event-form-p1 glow">
+              <label htmlFor="title">Event Title: </label>
+              <input
+                type="text"
+                id="title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </p>
+            <p className="event-form-p2 glow">
+              <label htmlFor="date">Event Date: </label>
+              <input
+                type="date"
+                id="date"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+              />
+            </p>
+            <p className="event-form-p3 glow">
+              <label htmlFor="time">Event Time: </label>
+              <input
+                type="time"
+                id="time"
+                value={time}
+                onChange={(e) => setTime(e.target.value)}
+              />
+            </p>
+            <p className="event-form-p4 glow">
+              <label htmlFor="location">Event Location: </label>
+              <input
+                type="text"
+                id="location"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+              />
+            </p>
+            <p className="event-form-p5 glow">
+              <label htmlFor="venue">Event Venue: </label>
+              <input
+                type="text"
+                id="venue"
+                value={venue}
+                onChange={(e) => setVenue(e.target.value)}
+              />
+            </p>
+            <p className="event-form-p6 glow">
+              <label htmlFor="description">Event Description</label>
+              <textarea
+                id="description"
+                rows="30"
+                cols="30"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </p>
+            <p className="event-form-p7">
+              <button type="submit" onMouseOver={() => setEditSuccess('')}>
+                Submit Edit
+              </button>
+            </p>
+          </form>
+        </div>
       ) : <div className="not-available">No event Found!!!</div> : <div className="loading-events">Loading the events before crud can be done...</div> : <div className="not-available try-login">Read Instructions at the side</div> : <div className="not-available try-login database">
         <FaDatabase />
       </div>}

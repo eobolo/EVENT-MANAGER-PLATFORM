@@ -295,7 +295,7 @@ function App2() {
         <div className='App'>
             <UserHeader logUser={logUser} navigate={navigate} noDataFound={noDataFound} users={users} setUsers={setUsers}/>
             <Routes>
-                <Route path='/' element={<UserProfile logUser={logUser} noDataFound={noDataFound} new_first_name={new_first_name} new_last_name={new_last_name} new_email={new_email} new_username={new_username} new_password={new_password} imageUrl={imageUrl} setNewFirstName={setNewFirstName} setNewLastName={setNewLastName} setNewEmail={setNewEmail} setNewUserName={setNewUserName} setNewPassword={setNewPassword} handleImageUpload={handleImageUpload} imageName={imageName} handleUpdate={handleUpdate} updateMessage={updateMessage} />} />
+                <Route path='/' element={<UserProfile logUser={logUser} noDataFound={noDataFound} new_first_name={new_first_name} new_last_name={new_last_name} new_email={new_email} new_username={new_username} new_password={new_password} imageUrl={imageUrl} setNewFirstName={setNewFirstName} setNewLastName={setNewLastName} setNewEmail={setNewEmail} setNewUserName={setNewUserName} setNewPassword={setNewPassword} handleImageUpload={handleImageUpload} imageName={imageName} handleUpdate={handleUpdate} updateMessage={updateMessage} setUpdateMessage={setUpdateMessage} password={password} />} />
                 <Route path='/create' element={<UserCreate isEventDataGotten={isEventDataGotten} userId={id} events={events} setEvents={setEvents} logUser={logUser} />} />
                 <Route path='/events' element={<UserEventList userId={id} events={events} logUser={logUser} />} />
                 <Route path='/booked' element={<UserBookedEventList userId={id} events={events} logUser={logUser} />} />

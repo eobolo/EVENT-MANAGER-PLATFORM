@@ -1,6 +1,6 @@
 import { FaDatabase, FaSpinner } from "react-icons/fa6";
 
-const UserProfile = ({ logUser, noDataFound, new_first_name, new_last_name, new_email, new_username, new_password, imageUrl, handleImageUpload, setNewFirstName, setNewLastName, setNewEmail, setNewUserName, setNewPassword, imageName, handleUpdate, updateMessage }) => {
+const UserProfile = ({ logUser, noDataFound, new_first_name, new_last_name, new_email, new_username, new_password, imageUrl, handleImageUpload, setNewFirstName, setNewLastName, setNewEmail, setNewUserName, setNewPassword, imageName, handleUpdate, updateMessage, setUpdateMessage, password }) => {
     const inputFileStyle = {
         display: "none",
 
@@ -81,6 +81,7 @@ const UserProfile = ({ logUser, noDataFound, new_first_name, new_last_name, new_
                             </div>
                             <div className="personal-info-div-4">
                                 <button
+                                    onMouseLeave={() => setUpdateMessage("")}
                                     type="submit"
                                 >
                                     Update Information
